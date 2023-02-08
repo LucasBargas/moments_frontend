@@ -3,6 +3,7 @@ import { IMoment } from '../interfaces/IMoment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { IResponse } from '../interfaces/IResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class MomentsService {
   constructor(private http: HttpClient) { }
 
   createMoment(formData: FormData): Observable<FormData> {
-    console.log(formData);
     return this.http.post<FormData>(this.apiBaseUrl, formData);
+  }
+
+  listMoments(): Observable<IMoment[]> {
+    return this.http.get<IMoment[]>(this.apiBaseUrl);
   }
 }

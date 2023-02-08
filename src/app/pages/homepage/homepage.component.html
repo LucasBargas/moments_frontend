@@ -4,7 +4,17 @@
   </div>
   <app-container>
     <div *ngIf="!loading" class="homepage-wrapper">
-      <p>Homepage</p>
+      <h1>Veja o que estão compartilhando</h1>
+
+      <form>
+        <input type="search" name="search" (input)="search($event)">
+      </form>
+
+      <div *ngFor="let moment of moments" class="homepage-wrapper-list">
+        <div>
+          {{ moment.title }}
+        </div>
+      </div>
     </div>
   </app-container>
 </section>

@@ -1,1 +1,11 @@
-<p>messages works!</p>
+<div (click)="handleOutsideClick($event)" class="message {{ messageServices.message ? 'active' : '' }}">
+  <app-container>
+    <div class="message-wrapper">
+      <div class="message-wrapper-header">
+        <h2>Mensagem do sistema:</h2>
+        <button (click)="messageServices.clearMessage()" class="clear"><fa-icon [icon]="faTimes"></fa-icon></button>
+      </div>
+      <p>{{ messageServices.message }}</p>
+    </div>
+  </app-container>
+</div>

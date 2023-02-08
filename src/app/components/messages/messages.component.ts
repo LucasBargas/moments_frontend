@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-messages',
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./messages.component.scss']
 })
 export class MessagesComponent {
+  faTimes = faTimes
 
+  // Public para ter acesso no template
+  constructor(public messageServices: MessagesService) {}
+
+  handleOutsideClick(event: any) {
+    if (this.messageServices.message && !event.target.closest('div.message-wrapper')) {
+      this.messageServices.clearMessage();
+    }
+  }
 }

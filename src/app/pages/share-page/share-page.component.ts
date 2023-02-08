@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from "@angular/platform-browser";
 import { IMoment } from 'src/app/interfaces/IMoment';
 import { MomentsService } from 'src/app/services/moments.service';
+import { MessagesService } from 'src/app/services/messages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-share-page',
@@ -12,7 +14,12 @@ export class SharePageComponent implements OnInit, OnDestroy {
   loading: boolean = true;
   btnText = 'Compartilhar';
 
-  constructor(private titleService: Title, private momentService: MomentsService) {
+  constructor(
+    private titleService: Title,
+    private momentService: MomentsService,
+    private messageService: MessagesService,
+    private router: Router
+  ) {
     this.titleService.setTitle('Moments | Compartilhar');
   }
 
@@ -26,7 +33,7 @@ export class SharePageComponent implements OnInit, OnDestroy {
     this.loading = true;
   }
 
-  async createHandler(moment: IMoment) {
+  createHandler(moment: IMoment) {
     const formData = new FormData();
 
     if (!moment.image) return;
@@ -35,6 +42,8 @@ export class SharePageComponent implements OnInit, OnDestroy {
     formData.append('description', moment.description);
     formData.append('image', moment.image);
 
-    await this.momentService.createMoment(formData).subscribe();
+    this.momentService.createMoment(formData).subscribe();
+    this.messageService.addMessage('Momento adicionado com sucesso!');
+    this.router.navigate(['/']);
   }
 }
