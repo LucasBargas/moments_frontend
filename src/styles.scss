@@ -68,6 +68,15 @@ textarea {
   padding: .5rem .875rem;
 }
 
+.form-field-error {
+  padding-top: .325rem;
+
+  p {
+    font-size: .875rem;
+    color: tomato;
+  }
+}
+
 button {
   cursor: pointer;
 }

@@ -12,7 +12,7 @@
         <ul>
           <li>
             <span>Menu</span>
-            <button (click)="handleClick()"><i class="fa-solid fa-xmark"></i></button>
+            <button (click)="handleClick()"><fa-icon [icon]="faXmark"></fa-icon></button>
           </li>
           <li>
             <a (click)="handleClick()" class="{{route === '/' ? 'active' : ''}}" routerLink="/">Home</a>
@@ -26,7 +26,7 @@
         </ul>
       </nav>
 
-      <button *ngIf="!isOpened" (click)="handleClick()"><i class="fa-solid fa-bars"></i></button>
+      <button *ngIf="!isOpened" (click)="handleClick()"><fa-icon [icon]="faBars"></fa-icon></button>
     </div>
   </app-container>
 </header>

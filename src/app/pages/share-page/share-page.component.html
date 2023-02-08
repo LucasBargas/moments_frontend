@@ -8,7 +8,7 @@
         <span>Compartilhe o seu Momento</span>
         <img src="../../../assets/moments.png" alt="Icon">
       </h1>
-      <app-moment-form [btnText]="btnText"></app-moment-form>
+      <app-moment-form [btnText]="btnText" (onSubmit)="createHandler($event)"></app-moment-form>
     </div>
   </app-container>
 </section>

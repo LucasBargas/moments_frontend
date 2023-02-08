@@ -1,5 +1,6 @@
 import { Component, OnDestroy} from '@angular/core';
 import { Router,NavigationStart, Event as NavigationEvent } from '@angular/router';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +9,11 @@ import { Router,NavigationStart, Event as NavigationEvent } from '@angular/route
 })
 export class HeaderComponent implements OnDestroy {
   isOpened: boolean = false;
+  faBars = faBars;
+  faXmark = faXmark;
   route!: string;
   event$
+
   constructor(private router: Router) {
     this.event$ = this.router.events
       .subscribe(

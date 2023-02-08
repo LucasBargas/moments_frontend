@@ -1,4 +1,9 @@
 export interface IComment {
-  name: string;
-  comment: string;
+  _id?: string;
+  uuid?: string;
+  name: string
+  text: string
+  momentId: string;
+  createdAt?: string;
+  updatedAt?: string
 }

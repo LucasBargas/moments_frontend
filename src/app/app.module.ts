@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
@@ -13,6 +14,7 @@ import { SharePageComponent } from './pages/share-page/share-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { MomentFormComponent } from './components/moment-form/moment-form.compon
     SharePageComponent,
     AboutPageComponent,
     LoadingComponent,
-    MomentFormComponent
+    MomentFormComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
