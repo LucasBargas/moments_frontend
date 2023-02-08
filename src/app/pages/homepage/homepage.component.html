@@ -1,0 +1,10 @@
+<section class="homepage">
+  <div *ngIf="loading" class="loading">
+    <app-loading></app-loading>
+  </div>
+  <app-container>
+    <div *ngIf="!loading" class="homepage-wrapper">
+      <p>Homepage</p>
+    </div>
+  </app-container>
+</section>

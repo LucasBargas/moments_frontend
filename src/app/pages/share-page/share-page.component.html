@@ -1,0 +1,14 @@
+<section class="share-page">
+  <div *ngIf="loading" class="loading">
+    <app-loading></app-loading>
+  </div>
+  <app-container>
+    <div *ngIf="!loading" class="share-page-wrapper">
+      <h1>
+        <span>Compartilhe o seu Momento</span>
+        <img src="../../../assets/moments.png" alt="Icon">
+      </h1>
+      <app-moment-form [btnText]="btnText"></app-moment-form>
+    </div>
+  </app-container>
+</section>

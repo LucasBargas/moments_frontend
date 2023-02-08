@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000000;
+
+  --white: #ffffff;
+
+  --gray-50: #f8f9fa;
+  --gray-100: #efefef;
+  --gray-300: #808080;
+  --gray-400: #444444;
+  --gray-600: #212529;
+
+  --yellow-400: #dec129;
+  --yellow-600: #ffc107;
+}
+
+
+html {
+  @media (max-width: 1080px) {
+    font-size: 93.75%;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 87.5%;
+  }
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: var(--gray-400);
+}
+
+button, input, textarea {
+  font-family: Helvetica, sans-serif;
+  font-size: 1rem;
+  outline: none;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
+
+input, textarea, label {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+}
+
+input[type="file"] {
+  cursor: pointer;
+  border: 1px solid var(--gray-600);
+  padding: .875rem ;
+}
+
+input[type="text"] {
+  padding: 0 .875rem;
+  height: 2.5rem;
+  border: 1px solid var(--gray-600);
+}
+
+textarea {
+  resize: none;
+  padding: .5rem .875rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border: none;
+  border-radius: 6px;
+  padding: .5rem .75rem;
+  margin-top: 1.25rem;
+  background: var(--yellow-400);
+  transition: .3s;
+
+  &:hover {
+    background: var(--yellow-600);
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}

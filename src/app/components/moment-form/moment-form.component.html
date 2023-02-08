@@ -1,0 +1,16 @@
+<form class="form">
+  <div class="form-field">
+    <label for="title">Título</label>
+    <input type="text" name="title" id="title" placeholder="Coloque um título..." required>
+  </div>
+  <div class="form-field">
+    <label for="description">Descrição</label>
+    <textarea rows="3" name="description" id="description" placeholder="Descreva este momento especial..." required></textarea>
+  </div>
+  <div class="form-field">
+    <label for="image">Foto deste momento</label>
+    <input type="file" name="image" id="image" required>
+  </div>
+
+  <button type="submit">{{ btnText }}</button>
+</form>

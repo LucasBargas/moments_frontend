@@ -1,0 +1,15 @@
+<section class="about-page">
+  <div *ngIf="loading" class="loading">
+    <app-loading></app-loading>
+  </div>
+  <app-container>
+    <div *ngIf="!loading" class="about-page-wrapper">
+      <h1>
+        <span>Sobre o Moments</span>
+        <img src="../../../assets/moments.png" alt="Icon">
+      </h1>
+      <p>Compartilhe seus momentos e receba mensagens das pessoas que você gosta!</p>
+      <a routerLink="/compartilhar">Quero compartilhar meu Momento!</a>
+    </div>
+  </app-container>
+</section>

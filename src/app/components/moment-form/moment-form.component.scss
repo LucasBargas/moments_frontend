@@ -1,0 +1,14 @@
+.form {
+  padding-top: 1rem;
+
+  .form-field {
+    &:not(:first-of-type) {
+      margin-top: 1.25rem;
+    }
+
+    label {
+      margin-bottom: .625rem;
+      font-weight: 600;
+    }
+  }
+}

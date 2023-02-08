@@ -1,0 +1,32 @@
+<header class="header">
+  <app-container>
+    <div class="header-wrapper">
+      <div class="header-logo">
+        <a routerLink="/">
+          <img src="../../../assets/moments.png" alt="Logo">
+          <span>Moments</span>
+        </a>
+      </div>
+
+      <nav (click)="handleOutsideClick($event)" class="{{isOpened ? 'active' : ''}}">
+        <ul>
+          <li>
+            <span>Menu</span>
+            <button (click)="handleClick()"><i class="fa-solid fa-xmark"></i></button>
+          </li>
+          <li>
+            <a (click)="handleClick()" class="{{route === '/' ? 'active' : ''}}" routerLink="/">Home</a>
+          </li>
+          <li>
+            <a (click)="handleClick()" class="{{route === '/compartilhar' ? 'active' : ''}}" routerLink="/compartilhar">Compartilhar</a>
+          </li>
+          <li>
+            <a  (click)="handleClick()"class="{{route === '/sobre' ? 'active' : ''}}" routerLink="/sobre">Sobre</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button *ngIf="!isOpened" (click)="handleClick()"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </app-container>
+</header>
