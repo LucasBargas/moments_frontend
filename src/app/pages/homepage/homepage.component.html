@@ -4,17 +4,43 @@
   </div>
   <app-container>
     <div *ngIf="!loading" class="homepage-wrapper">
-      <h1>Veja o que estão compartilhando</h1>
+      <h1>
+        <span>Veja os <strong>Momentos</strong> que estão compartilhando</span>
+        <img src="../../../assets/moments.png" alt="Icon">
+      </h1>
 
       <form>
-        <input type="search" name="search" (input)="search($event)">
+        <input type="search" name="search" (input)="handleSearch($event)" placeholder="Busque por um momento...">
+        <button><fa-icon [icon]="faSearch"></fa-icon></button>
       </form>
 
-      <div *ngFor="let moment of moments" class="homepage-wrapper-list">
-        <div>
-          {{ moment.title }}
+      <ng-container *ngIf="moments.length > 0; else noMoments">
+        <div class="homepage-wrapper-list">
+          <div class="single-moment" *ngFor="let moment of moments">
+            <a routerLink="/moment/{{ moment._id }}">
+              <figure>
+                <img src="{{ apiBaseUrl }}uploads/images/{{ moment.image }}" alt="{{ moment.title }}">
+              </figure>
+            </a>
+            <div class="single-moment-details">
+              <h3><a routerLink="/moment/{{ moment._id }}">{{ moment.title }}</a></h3>
+              <i class="single-moment-date">{{ moment.createdAt }}</i>
+              <div class="single-moment-details-redirect">
+                <a routerLink="/moment/{{ moment._id }}">Mais detalhes</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </ng-container>
+
+      <ng-template #noMoments>
+        <div>
+          <div class="homepage-wrapper-no-moments">
+            <h2>Não há momentos cadastrados!</h2>
+            <a routerLink="/compartilhar">Compartilhe um Momento!</a>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </app-container>
 </section>

@@ -14,11 +14,12 @@ export class HomepageComponent implements OnInit, OnDestroy {
   loading: boolean = true;
   allMoments: IMoment[] = [];
   moments: IMoment[] = [];
+  faSearch = faSearch;
   apiBaseUrl = environment.apiUrl;
 
   constructor(
     private titleService: Title,
-    private momentsService: MomentsService
+    private momentsService: MomentsService,
   ) {
     this.titleService.setTitle('Moments');
   }
@@ -42,13 +43,15 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.allMoments = momentsFiltered;
       this.moments = momentsFiltered;
     })
+
+    console.log(this.apiBaseUrl);
   }
 
   ngOnDestroy(): void {
     this.loading = true;
   }
 
-  search(event: Event): void {
+  handleSearch(event: Event): void {
     const target = event.target as HTMLInputElement;
     const value = target.value;
 

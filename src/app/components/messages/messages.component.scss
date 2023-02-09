@@ -30,15 +30,15 @@
   height: 100vh;
   background: transparent;
   padding-top: 6rem;
-  animation: hide .5s forwards;
-  transition: .5s;
+  animation: hide .3s forwards;
+  transition: .3s;
 
   &.active {
     opacity: initial;
     visibility: visible;
     pointer-events: all;
-    animation: show .5s forwards;
-    transition: .5s;
+    animation: show .3s forwards;
+    transition: .3s;
   }
 
   &-wrapper {

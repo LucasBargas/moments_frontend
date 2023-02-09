@@ -1,0 +1,13 @@
+<div class="moment">
+  <div *ngIf="loading" class="loading">
+    <app-loading></app-loading>
+  </div>
+
+  <div *ngIf="!loading" class="moment-wrapper">
+    <h1>Comentários</h1>
+    <div *ngFor="let comment of comments">
+      <p>{{ comment.name }}</p>
+      <p>{{ comment.text }}</p>
+    </div>
+  </div>
+</div>
