@@ -25,6 +25,7 @@
             <div class="single-moment-details">
               <h3><a routerLink="/moment/{{ moment._id }}">{{ moment.title }}</a></h3>
               <i class="single-moment-date">{{ moment.createdAt }}</i>
+              <p>Comentários: {{ moment.comments!.length }}</p>
               <div class="single-moment-details-redirect">
                 <a routerLink="/moment/{{ moment._id }}">Mais detalhes</a>
               </div>

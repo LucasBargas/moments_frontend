@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Router,NavigationStart, Event as NavigationEvent } from '@angular/router';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -7,11 +7,12 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
   isOpened: boolean = false;
   faBars = faBars;
   faXmark = faXmark;
   route!: string;
+  headerChange = false;
   event$
 
   constructor(private router: Router) {
@@ -22,6 +23,18 @@ export class HeaderComponent implements OnDestroy {
             this.route = event.url;
           }
         });
+  }
+
+  ngOnInit() {
+    const handleScroll = () => {
+      if (window.pageYOffset > 80) {
+        this.headerChange = true;
+      } else if (window.pageYOffset < 80) {
+        this.headerChange = false;
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
   }
 
   ngOnDestroy() {

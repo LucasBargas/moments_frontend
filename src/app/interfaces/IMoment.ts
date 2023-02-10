@@ -6,6 +6,7 @@ export interface IMoment {
   title: string;
   description: string;
   image: string;
+  comments?: { name: string; text: string }[];
   createdAt?: string;
   updatedAt?: string;
 }

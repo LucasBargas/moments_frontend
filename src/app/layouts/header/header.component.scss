@@ -7,6 +7,17 @@
   left: 0;
   width: 100%;
   z-index: 1000;
+  transition: .3s;
+
+  &.active {
+    height: 4rem;
+    transition: .3s;
+
+    .header-wrapper {
+      height: 4rem;
+      transition: .3s;
+    }
+  }
 
   &-wrapper {
     display: flex;
@@ -14,6 +25,7 @@
     align-items: center;
     flex-wrap: wrap;
     height: 5rem;
+    transition: .4s;
 
     .header-logo {
       a {
