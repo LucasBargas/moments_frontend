@@ -7,7 +7,7 @@ export class MessagesService {
   message: string = '';
   constructor() { }
 
-  addMessage(message: string) {
+  addMessage(message: string): void {
     this.message = message;
 
     setTimeout(() => {
@@ -15,7 +15,7 @@ export class MessagesService {
     }, 4000);
   }
 
-  clearMessage() {
+  clearMessage(): void {
     this.message = '';
   }
 }

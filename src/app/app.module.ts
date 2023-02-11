@@ -16,6 +16,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { MomentPageComponent } from './pages/moment-page/moment-page.component';
+import { MomentEditPageComponent } from './pages/moment-edit-page/moment-edit-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MomentPageComponent } from './pages/moment-page/moment-page.component';
     MomentFormComponent,
     MessagesComponent,
     MomentPageComponent,
+    MomentEditPageComponent,
   ],
   imports: [
     BrowserModule,

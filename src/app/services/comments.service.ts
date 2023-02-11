@@ -11,7 +11,7 @@ export class CommentsService {
   private apiBaseUrl = `${environment.apiUrl}comments`;
   constructor(private http: HttpClient) { }
 
-  listCommentsById(id: string) {
+  listCommentsById(id: string):Observable<IComment[]> {
     return this.http.get<IComment[]>(`${this.apiBaseUrl}/${id}`);
   }
 }

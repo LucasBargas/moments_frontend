@@ -17,6 +17,8 @@
 
   --yellow-400: #dec129;
   --yellow-600: #ffc107;
+
+  --red-600: #ff6347
 }
 
 
@@ -73,7 +75,7 @@ textarea {
 
   p {
     font-size: .875rem;
-    color: tomato;
+    color: var(--red-600);
   }
 }
 

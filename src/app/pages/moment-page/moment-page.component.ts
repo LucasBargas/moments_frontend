@@ -1,7 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { IMoment } from 'src/app/interfaces/IMoment';
 import { CommentsService } from 'src/app/services/comments.service';
+import { MomentsService } from 'src/app/services/moments.service';
+import { environment } from 'src/environments/environment';
 import { IComment } from '../../interfaces/IComment';
+import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-moment-page',
@@ -9,12 +15,19 @@ import { IComment } from '../../interfaces/IComment';
   styleUrls: ['./moment-page.component.scss']
 })
 export class MomentPageComponent implements OnInit, OnDestroy {
+  moment!: IMoment;
   comments: IComment[] = [];
   loading: boolean = true;
+  apiBaseUrl = environment.apiUrl;
+  faEdit = faEdit;
+  faTimes = faTimes;
   constructor(
+    private titleService: Title,
     private route: ActivatedRoute,
-    private commentService: CommentsService
-  ) {}
+    private commentService: CommentsService,
+    private momentService: MomentsService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -22,10 +35,25 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     }, 600);
 
     const id = this.route.snapshot.paramMap.get('id');
-    this.commentService.listCommentsById(id!).subscribe((comments) => this.comments = comments);
+
+    this.commentService.listCommentsById(id!).subscribe((comments) => {
+      console.log(comments);
+      this.comments = comments;
+    });
+
+    this.momentService.getMomentById(id!).subscribe((moment) => {
+      console.log(moment);
+      this.moment = moment;
+      this.titleService.setTitle(`Moments | ${moment._id}`);
+    });
   }
 
   ngOnDestroy(): void {
     this.loading = true;
+  }
+
+  handleRedirectButton(redirectDir: string) {
+    this.router.navigate([`/moment/edit/${redirectDir}`]);
+    console.log(redirectDir)
   }
 }

@@ -19,4 +19,8 @@ export class MomentsService {
   listMoments(): Observable<IMoment[]> {
     return this.http.get<IMoment[]>(this.apiBaseUrl);
   }
+
+  getMomentById(id: string): Observable<IMoment> {
+    return this.http.get<IMoment>(`${this.apiBaseUrl}/${id}`);
+  }
 }

@@ -47,6 +47,10 @@
         &:hover {
           span {
             color: var(--yellow-600);
+
+            @media (max-width: 1100px) {
+              color: var(--gray-400);
+            }
           }
         }
       }

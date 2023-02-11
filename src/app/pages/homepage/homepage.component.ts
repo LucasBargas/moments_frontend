@@ -43,8 +43,6 @@ export class HomepageComponent implements OnInit, OnDestroy {
       this.allMoments = momentsFiltered;
       this.moments = momentsFiltered;
     })
-
-    console.log(this.apiBaseUrl);
   }
 
   ngOnDestroy(): void {
