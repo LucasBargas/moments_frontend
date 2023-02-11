@@ -23,4 +23,8 @@ export class MomentsService {
   getMomentById(id: string): Observable<IMoment> {
     return this.http.get<IMoment>(`${this.apiBaseUrl}/${id}`);
   }
+
+  updateMoment(formData: FormData, id: string): Observable<FormData> {
+    return this.http.patch<FormData>(`${this.apiBaseUrl}/${id}`, formData);
+  }
 }

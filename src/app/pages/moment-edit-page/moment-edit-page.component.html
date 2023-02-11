@@ -1,1 +1,19 @@
-<p>moment-edit-page works!</p>
+<section class="moment-edit">
+  <div *ngIf="loading" class="loading">
+    <app-loading></app-loading>
+  </div>
+
+  <app-container>
+    <div *ngIf="!loading" class="moment-edit-wrapper">
+      <h1>
+        <span>Atualize o seu <strong>Momento</strong></span>
+        <img src="../../../assets/moments.png" alt="Icon">
+      </h1>
+      <app-moment-form
+        [btnText]="btnText"
+        (onSubmit)="createHandler($event)"
+      >
+      </app-moment-form>
+    </div>
+  </app-container>
+</section>
