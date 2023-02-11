@@ -4,12 +4,12 @@
   </div>
   <app-container>
     <div *ngIf="!loading" class="homepage-wrapper">
-      <h1>
+      <h1 class="{{ moments.length === 0 ? 'no-moments' : '' }}">
         <span>Veja os <strong>Momentos</strong> que estão compartilhando</span>
         <img src="../../../assets/moments.png" alt="Icon">
       </h1>
 
-      <form>
+      <form *ngIf="moments.length > 0">
         <input type="search" name="search" (input)="handleSearch($event)" placeholder="Busque por um momento...">
         <button><fa-icon [icon]="faSearch"></fa-icon></button>
       </form>

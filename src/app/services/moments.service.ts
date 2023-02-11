@@ -27,4 +27,8 @@ export class MomentsService {
   updateMoment(formData: FormData, id: string): Observable<FormData> {
     return this.http.patch<FormData>(`${this.apiBaseUrl}/${id}`, formData);
   }
+
+  deleteMoment(id: string): Observable<IMoment> {
+    return this.http.delete<IMoment>(`${this.apiBaseUrl}/${id}`);
+  }
 }

@@ -8,6 +8,7 @@ import { MomentsService } from 'src/app/services/moments.service';
 import { environment } from 'src/environments/environment';
 import { IComment } from '../../interfaces/IComment';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-moment-page',
@@ -26,6 +27,7 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private commentService: CommentsService,
     private momentService: MomentsService,
+    private messageService: MessagesService,
     private router: Router
   ) { }
 
@@ -55,5 +57,12 @@ export class MomentPageComponent implements OnInit, OnDestroy {
   handleRedirectButton(redirectDir: string) {
     this.router.navigate([`/moment/edit/${redirectDir}`]);
     console.log(redirectDir)
+  }
+
+  handleDeleteMoment(id: string): void {
+    console.log(id)
+    this.momentService.deleteMoment(id).subscribe();
+    this.messageService.addMessage('Momento deletado com sucesso!');
+    this.router.navigate([`/`]);
   }
 }
