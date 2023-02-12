@@ -39,12 +39,10 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.commentService.listCommentsById(id!).subscribe((comments) => {
-      console.log(comments);
       this.comments = comments;
     });
 
     this.momentService.getMomentById(id!).subscribe((moment) => {
-      console.log(moment);
       this.moment = moment;
       this.titleService.setTitle(`Moments | ${moment._id}`);
     });
@@ -55,12 +53,10 @@ export class MomentPageComponent implements OnInit, OnDestroy {
   }
 
   handleRedirectButton(redirectDir: string) {
-    this.router.navigate([`/moment/edit/${redirectDir}`]);
-    console.log(redirectDir)
+    this.router.navigate([`/moment/editar/${redirectDir}`]);
   }
 
   handleDeleteMoment(id: string): void {
-    console.log(id)
     this.momentService.deleteMoment(id).subscribe();
     this.messageService.addMessage('Momento deletado com sucesso!');
     this.router.navigate([`/`]);

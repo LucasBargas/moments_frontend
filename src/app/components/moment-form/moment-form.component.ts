@@ -10,10 +10,21 @@ import { IMoment } from 'src/app/interfaces/IMoment';
 export class MomentFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<IMoment>()
   @Input() btnText!: string;
+  @Input() moment!: IMoment;
 
   momentForm!: FormGroup;
 
   ngOnInit(): void {
+    if (this.moment) {
+      this.momentForm = new FormGroup({
+        title: new FormControl(this.moment?.title || '', [Validators.required]),
+        description: new FormControl(this?.moment.description || '', [Validators.required]),
+        image: new FormControl(''),
+      })
+
+      return;
+    }
+
     this.momentForm = new FormGroup({
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),

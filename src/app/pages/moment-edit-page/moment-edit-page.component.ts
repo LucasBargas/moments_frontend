@@ -12,8 +12,9 @@ import { MomentsService } from 'src/app/services/moments.service';
 })
 export class MomentEditPageComponent implements OnInit, OnDestroy {
   loading: boolean = true;
-  btnText = 'Atualizar';
+  btnText = 'Editar';
   id = this.route.snapshot.paramMap.get('id');
+  moment!: IMoment;
   constructor(
     private momentService: MomentsService,
     private titleService: Title,
@@ -29,6 +30,7 @@ export class MomentEditPageComponent implements OnInit, OnDestroy {
 
     this.momentService.getMomentById(this.id!).subscribe((moment) => {
       this.titleService.setTitle(`Moments | Editar | ${moment._id}`);
+      this.moment = moment;
     });
   }
 

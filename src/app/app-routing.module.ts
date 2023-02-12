@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'moment/:id', component: MomentPageComponent,
   },
   {
-    path: 'moment/edit/:id', component: MomentEditPageComponent,
+    path: 'moment/editar/:id', component: MomentEditPageComponent,
   }
 ];
 
