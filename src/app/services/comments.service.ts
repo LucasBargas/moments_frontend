@@ -14,4 +14,12 @@ export class CommentsService {
   listCommentsById(id: string):Observable<IComment[]> {
     return this.http.get<IComment[]>(`${this.apiBaseUrl}/${id}`);
   }
+
+  postComment(comment: { name: string, text: string }, momentId: string): Observable<IComment> {
+    return this.http.post<IComment>(`${this.apiBaseUrl}/${momentId}`, comment);
+  }
+
+  deleteComment(id: string): Observable<IComment> {
+    return this.http.delete<IComment>(`${this.apiBaseUrl}/${id}`);
+  }
 }

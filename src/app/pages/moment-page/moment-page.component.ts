@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 import { IMoment } from 'src/app/interfaces/IMoment';
 import { CommentsService } from 'src/app/services/comments.service';
 import { MomentsService } from 'src/app/services/moments.service';
@@ -22,6 +24,7 @@ export class MomentPageComponent implements OnInit, OnDestroy {
   apiBaseUrl = environment.apiUrl;
   faEdit = faEdit;
   faTimes = faTimes;
+  commentForm!: FormGroup;
   constructor(
     private titleService: Title,
     private route: ActivatedRoute,
@@ -39,17 +42,45 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.commentService.listCommentsById(id!).subscribe((comments) => {
-      this.comments = comments;
+      const momentsFiltered = this.momentsFiltered(comments)
+
+      this.comments = momentsFiltered;
+      console.log(momentsFiltered)
     });
 
     this.momentService.getMomentById(id!).subscribe((moment) => {
       this.moment = moment;
       this.titleService.setTitle(`Moments | ${moment._id}`);
     });
+
+    this.commentForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      text: new FormControl('', [Validators.required]),
+    })
+  }
+
+  momentsFiltered(comments: IComment[]): IComment[] {
+    return comments.map((comment) => {
+      const createdAt = new Date(comment.createdAt!).toLocaleDateString('pt-BR');
+      const updatedAt = new Date(comment.updatedAt!).toLocaleDateString('pt-BR');
+      return {
+        ...comment,
+        createdAt,
+        updatedAt
+      }
+    });
   }
 
   ngOnDestroy(): void {
     this.loading = true;
+  }
+
+  get name() {
+    return this.commentForm.get('name')!;
+  }
+
+  get text() {
+    return this.commentForm.get('text')!;
   }
 
   handleRedirectButton(redirectDir: string) {
@@ -60,5 +91,26 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     this.momentService.deleteMoment(id).subscribe();
     this.messageService.addMessage('Momento deletado com sucesso!');
     this.router.navigate([`/`]);
+  }
+
+  handleDeleteComment(comment: IComment): void {
+    this.comments = this.comments.filter(({ uuid }) => {
+      return uuid !== comment.uuid;
+    })
+
+    this.commentService.deleteComment(comment.uuid!).subscribe();
+    console.log(comment);
+  }
+
+  handleSubmit(momentId: string) {
+    if (this.commentForm.invalid) return;
+
+    const comment = {
+      uuid: uuidv4(),
+      ...this.commentForm.value,
+    }
+
+    this.comments = [...this.comments, comment];
+    this.commentService.postComment(comment, momentId).subscribe();
   }
 }

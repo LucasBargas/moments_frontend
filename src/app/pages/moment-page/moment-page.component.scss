@@ -66,5 +66,59 @@
         }
       }
     }
+
+    &-comments {
+      padding-top: 1.5rem;
+
+      h3 {
+        text-align: center;
+      }
+
+      .no-comments-alert {
+        text-align: center;
+        margin-top: 1rem;
+      }
+
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1.5rem;
+
+        .moment-single {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid var(--gray-200);
+          padding-bottom: 1.25rem;
+
+          div {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+          }
+        }
+      }
+
+      &-form {
+        padding-top: 2rem;
+
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 1.5rem;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+
+          button {
+            display: inline-block;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }
