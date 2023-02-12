@@ -38,7 +38,7 @@ export class MomentEditPageComponent implements OnInit, OnDestroy {
     this.loading = true;
   }
 
-  createHandler(moment: IMoment) {
+  handleEditMoment(moment: IMoment) {
     const formData = new FormData();
 
     if (!moment.image) return;

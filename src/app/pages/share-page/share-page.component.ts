@@ -33,7 +33,7 @@ export class SharePageComponent implements OnInit, OnDestroy {
     this.loading = true;
   }
 
-  createHandler(moment: IMoment) {
+  handleCreateMoment(moment: IMoment) {
     const formData = new FormData();
 
     if (!moment.image) return;
