@@ -99,7 +99,6 @@ export class MomentPageComponent implements OnInit, OnDestroy {
     })
 
     this.commentService.deleteComment(comment.uuid!).subscribe();
-    console.log(comment);
   }
 
   handleSubmit(momentId: string) {
@@ -112,5 +111,13 @@ export class MomentPageComponent implements OnInit, OnDestroy {
 
     this.comments = [...this.comments, comment];
     this.commentService.postComment(comment, momentId).subscribe();
+  }
+
+  handleKeyDown(momentId: string, event: any) {
+    if (this.commentForm.invalid) return;
+
+    if (event.key === "Enter") {
+      this.handleSubmit(momentId);
+    }
   }
 }

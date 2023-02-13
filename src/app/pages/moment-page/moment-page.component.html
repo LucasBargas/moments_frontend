@@ -36,15 +36,16 @@
           Não há comentários.
         </p>
 
-        <div class="moment-wrapper-comments-list">
+        <div *ngIf="comments.length > 0" class="moment-wrapper-comments-list">
           <div class="moment-single" *ngFor="let comment of comments">
             <div>
               <p>{{ comment.text }}</p>
               <p><strong>Por:</strong> {{ comment.name }}</p>
+              <p class="comment-date">{{ comment.createdAt }}</p>
             </div>
 
             <button (click)="handleDeleteComment(comment)">
-              Excluir comentário
+              <fa-icon [icon]="faTimes"></fa-icon> Excluir
             </button>
           </div>
         </div>
@@ -52,8 +53,9 @@
         <div class="moment-wrapper-comments-form">
           <h3>Deixe um comentário</h3>
 
-          <form (ngSubmit)="handleSubmit(moment._id!)" [formGroup]="commentForm" #formDir="ngForm">
+          <form (ngSubmit)="handleSubmit(moment._id!)" (keydown)="handleKeyDown(moment._id!, $event)" [formGroup]="commentForm" #formDir="ngForm">
             <div>
+              <label for="name">Nome</label>
               <input
                 type="text"
                 name="name"
@@ -67,12 +69,12 @@
               </div>
             </div>
             <div>
-
+              <label for="text">Comentário</label>
               <textarea
-                rows="3"
+                rows="4"
                 name="text"
                 id="text"
-                placeholder="Descreva este momento especial..."
+                placeholder="Coloque aqui o seu comentário..."
                 required
                 formControlName="text"
               >
