@@ -45,7 +45,6 @@ export class MomentPageComponent implements OnInit, OnDestroy {
       const momentsFiltered = this.momentsFiltered(comments)
 
       this.comments = momentsFiltered;
-      console.log(momentsFiltered)
     });
 
     this.momentService.getMomentById(id!).subscribe((moment) => {
