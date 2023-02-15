@@ -1,9 +1,9 @@
 ## Projeto Moments
-O projeto **Moments** foi desenvolvido por mim, Lucas Bargas, para estudo, durante um curso no Youtube ministrado pelo Matheus Battisti, do Hora de Codar, que tem como objetivo apresentar uma simples rede social onde os usuários podem compatilhar fotos de momentos marcantes que vivenciaram. 
-Fiz mínimas alterações durante o desenvolvimento, utilizei SCSS, diferente do professor que fez uso de CSS. Construí todo o backend por conta própria, como desafio própio, com Nodejs e MongoDB, já o instrutor usou Adonisjs e SQL Lite. 
+O projeto **Moments** foi desenvolvido por mim, Lucas Bargas, para estudo, durante um curso no Youtube ministrado pelo Matheus Battisti, do Hora de Codar, que tem como objetivo apresentar uma simples rede social onde os usuários podem compartilhar fotos de momentos marcantes que vivenciaram.
+Fiz mínimas alterações durante o desenvolvimento, utilizei SCSS, diferente do professor que fez uso de CSS. Construí todo o backend por conta própria, como desafio própio, com Nodejs e MongoDB, já o instrutor usou Adonisjs e SQL Lite.
 
 ### Por que fiz este projeto?
-Tenho notado já há algum tempo que grandes empresas/corporações, especialmete focadas em tecnologia, no Front end, fazem muito uso do Angular em suas versões mais recentes. Notei também ao consultar a quantidade de candidatos às vagas que pedem esta tecnologia, é consideravelmente menor que as que que requerem Reactjs ou Vuejs, ou seja, a concorrência, querendo ou não, sendo bom ou ruim, é menor. Além de eu considerar extremamente importante está aberto em conhecer as tecnologias disponíveis, seja para o Front end ou Backend. 
+Tenho notado já há algum tempo que grandes empresas/corporações, especialmente focadas em tecnologia, no Front end, fazem muito uso do Angular em suas versões mais recentes. Notei também ao consultar a quantidade de candidatos às vagas que pedem esta tecnologia, é consideravelmente menor que as que que requerem Reactjs ou Vuejs, ou seja, a concorrência, querendo ou não, sendo bom ou ruim, é menor. Além de eu considerar extremamente importante está aberto em conhecer as tecnologias disponíveis, seja para o Front end ou Backend.
 Especialmente por estes motivos decidi aprender Angular.
 
 ### Link para visualizar o projeto
