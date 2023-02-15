@@ -61,7 +61,7 @@ git clone https://github.com/LucasBargas/moments_frontend.git
 ```
 #### Entre na pasta
 ```bash
-cd moments
+cd moments_frontend
 ```
 #### Instale as dependências
 ```bash
